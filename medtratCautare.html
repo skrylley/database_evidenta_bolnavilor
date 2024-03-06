@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/functii.js"></script>
+    <title>Căutare Medicamente</title>
+</head>
+
+<body>
+    <div class="filter">
+       
+    </div>
+
+    <div class="navbar">
+        <a href="../">
+            <img class="image2" src="img/redcross2.gif" alt="Red Cross">
+        </a>
+        <div class="line">
+            <a class='blueB' href="bolnavCautare.html">Căutare Bolnav</a>
+            <a class='blueB' href="medicCautare.html">Căutare Medic</a>
+
+            <a class='orangeB' href="asociereCautare.html">Căutare Asociere</a>
+
+            <a class='blueB' href="diagnosticCautare.html">Căutare Diagnostic</a>
+            <a class='blueB_active' href="medtratCautare.html">Căutare Med. / Trat.</a>
+        </div>
+        <div class="line">
+            <a class='blueB' href="bolnavAdaugare.html">Adăugare Bolnav</a>
+            <a class='blueB' href="medicAdaugare.html">Adăugare Medic</a>
+
+            <a class='orangeB' href="asociereAdaugare.html">Adăugare Asociere</a>
+
+            <a class='blueB' href="diagnosticAdaugare.html">Adăugare Diagnostic</a>
+            <a class='blueB' href="medtratAdaugare.html">Adăugare Med. / Trat.</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="element">
+
+            <div class="colFlex">
+                <div class="col2">
+                    <form class="searchF" id="searchForm1" method="post">
+                        <label for="denumire_cautare">Denumire Medicament:</label>
+                        <input type="text" name="denumire_cautare" id="denumire_cautare">
+                        <label for="concentratie_cautare">Concentratie:</label>
+                        <input type="text" name="concentratie_cautare" id="concentratie_cautare">
+                        <button class="cautare" type="button" onclick="submitNestedForm1('searchForm1')">Căutare</button>
+                    </form>
+                </div>
+
+                <div class="col2">
+                    <form class="searchF" id="searchForm2" method="post">
+                        <label for="detalii_cautare">Detalii Tratament:</label>
+                        <input type="text" name="detalii_cautare" id="detalii_cautare">
+                        <button class="cautare" type="button" onclick="submitNestedForm2('searchForm2')">Căutare</button>
+                    </form>      
+                </div>
+
+            </div>
+
+            <div class="col3">
+                
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="colFlex">
+
+                <div class="col2">
+                    <div class="textbox1">
+                        <h1>Căutare Medicament</h1>
+                        <h3>căutare / editare / ștergere</h3>
+                    </div> 
+                </div>
+
+                <div class="col2">
+                    <div class="textbox1">
+                        <h1>Căutare Tratament</h1>
+                        <h3>căutare / ștergere</h3>
+                    </div>  
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tabel" id="rezultateCautare"></div>
+    </div>
+
+    <script>
+        function submitNestedForm1(formId) {
+            var formData = $('#' + 'searchForm1').serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'php/cautare_medicamente.php',
+                data: formData,
+                success: function(response) {
+                    $('#rezultateCautare').html(response);
+                }
+            });
+        }
+        function submitNestedForm2(formId) {
+            var formData = $('#' + 'searchForm2').serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'php/cautare_tratament.php',
+                data: formData,
+                success: function(response) {
+                    $('#rezultateCautare').html(response);
+                }
+            });
+        }
+
+        $('form').submit(function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

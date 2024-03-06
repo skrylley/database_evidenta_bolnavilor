@@ -1,0 +1,491 @@
+/* style.css */
+/*html, body {
+    height: 100%;
+    overflow-y: scroll;
+}*/
+body {
+    font-family: Arial, sans-serif;
+    /*margin: 0;
+    padding: 0;*/
+    position: relative;
+    background-image: url('../img/background2.jpg');
+    background-size:cover;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-color: #000C32;
+    
+}
+.navbar {
+    background-color: #000c32;
+
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    float: left;
+    top: 0px;
+    left: 0;
+    padding: 5px 0px;
+    z-index: 7;
+}
+.navbar .orangeB{
+    float:left;
+    position:relative;
+    display: block;
+    background-color: #320000;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    min-width: 10px;
+    max-width: 200px;
+    width: 20%;
+    text-decoration: none;
+}
+
+.navbar .orangeB:hover {
+    background-color: #ff6767;
+    color: black;
+}
+
+.navbar .orangeB_active {
+    float:left;
+    position:relative;
+    display: block;
+    background-color: #810000;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    min-width: 10px;
+    max-width: 200px;
+    width: 20%;
+    text-decoration: none;
+}
+
+
+.navbar .line .orangeB {
+    border: 2px solid #810000;
+    border-radius: 16px;
+}
+.navbar .line .orangeB_active {
+    border: 2px solid #810000;
+    border-radius: 16px;
+}
+
+.navbar .blueB {
+    float:left;
+    position:relative;
+    display: block;
+    background-color: #000c32;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    min-width: 10px;
+    max-width: 200px;
+    width: 20%;
+    text-decoration: none;
+}
+
+.navbar .blueB:hover {
+    background-color: #67caff;
+    color: black;
+}
+
+.navbar .blueB_active {
+    float:left;
+    position:relative;
+    display: block;
+    background-color: #003a81;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    min-width: 10px;
+    max-width: 200px;
+    width: 20%;
+    text-decoration: none;
+}
+
+.navbar .line {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+
+.navbar .line .blueB {
+    border: 2px solid #003a81;
+    border-radius: 16px;
+}
+.navbar .line .blueB_active {
+    border: 2px solid #003a81;
+    border-radius: 16px;
+}
+.filter{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000C32ee;
+    z-index: 0;
+}
+.content{
+    position: relative;
+    /*background-color: #9d00007e;*/
+    color: #FFFFFF;
+    margin-top: 100px;
+    height: 70vh;
+    width: 100%;
+    margin-bottom: 100px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.element{
+    /*background-color: #003207;*/
+    background-color: #003a815f;
+    text-align: center;
+    flex: 40%;
+    width: 50%;
+    height: 400px;
+    padding: 0px 0px;
+    margin-top: 150px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 15px;
+}
+.title1{
+    color: #ffffff;
+    text-align: center;
+}
+.image1{
+    width: 150px;
+    margin-top: 100px;
+}
+.image2{
+    position: fixed;
+    
+    margin-top: 0px;
+    margin-left: 3%;
+    width: 100px;
+    top: 0px;
+    left:0;
+    margin-top: 20px;
+}
+
+
+.col{
+    margin-left: 50px;
+}
+
+.textbox1{
+    margin-top: 100px;
+}
+
+
+.element form {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #b1080800;
+    z-index: 7;
+}
+
+/* Stilizare pentru fiecare input */
+.element form label {
+    position: relative;
+    
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-align: left;
+    max-height: 30px;
+    margin-bottom: 0px;
+}
+
+.element form input {
+     /* Alocăm 50% din lățime și ajustăm spațiul */
+    position: relative;
+    top:0px;
+    margin-top: 0px;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+}
+.element form select {
+    /* Alocăm 50% din lățime și ajustăm spațiul */
+    position: relative;
+    top:0px;
+    margin-top: 0px;
+    padding: 0px 8px;
+    margin-bottom: 1px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+}
+
+
+
+/*input[type="submit"] {
+    background-color: #003a81;
+    color: white;
+    cursor: pointer;
+    width: 0%;
+}
+
+input[type="submit"]:hover {
+    background-color: #67caff;
+    color: black;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #67caff;
+    outline: none;
+}*/
+
+.tabel{
+    position: relative;
+    text-align: center;
+    background-color: #003a8100;
+    margin-top: 0px;
+    max-width: 100%;
+    width: 100%;
+        max-height: 500px; /* specificați o înălțime maximă pentru a activa scrollbar-ul când conținutul depășește această înălțime */
+        overflow-y: auto; /* sau "scroll" pentru a afișa întotdeauna bara de derulare */
+        
+}
+.blankrow{
+    width: 5000px;
+}
+table {
+    min-height: 0;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #003a81;
+    border: 1px solid #dddddd;
+    margin-top: 10px;
+    color: white;
+    transform: scale(1);
+    
+}
+
+th {
+
+    border: 1px solid #dddddd;
+    background-color: #003a81;
+    color: #ffffff;
+    padding: 10px 25px;
+    text-align: center;
+    width: 20px;
+    min-width: 20px;
+    max-width: 2000px;
+}
+.bigrow{
+    min-width: 600px;
+}
+.buttonrow{
+    
+    max-width: 10px;
+}
+tr{
+    background-color: #ff00ee; 
+}
+
+tr:nth-child(even) {
+    background-color: #002d64;
+}
+tr:nth-child(odd) {
+    background-color: #003a81;
+}
+
+td {
+    background-color: #002d6000;
+    border: 1px solid #dddddd90;
+    padding: 8px;
+}
+
+td a {
+    color: #003a81;
+    text-decoration: none;
+    
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.colFlex{
+    display: flex;
+    flex-wrap: wrap;
+    height:100%;
+    min-width: 100%;
+    width: 100%;
+}
+.col2{
+    margin-left: 10%;
+    width: 35%;
+    max-width: 35%;
+    width: 35%;
+    height: 10px;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    flex:50%;   
+}
+.col3{
+    position: relative;
+    bottom:50px;
+    max-width: 100%;
+    height:30px;
+    flex:100%;   
+}
+
+
+.cautare{
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 26px;
+    background-color: #003a81;
+    color: white;
+}
+.cautare:hover{
+    background-color: #67caff;
+    color: black;
+}
+
+
+.edit{
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 26px;
+    background-color: #028100;
+    color: white;
+}
+.edit:hover{
+    background-color: #7cff7a;
+    color: black;
+}
+.delete{
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 26px;
+    background-color: #810000;
+    color: white;
+}
+.delete:hover{
+    background-color: #ff6767;
+    color: black;
+}
+
+
+  
+/*.buttonSubmit{
+    position: fixed;
+    text-align: center;
+    width: 10px;
+    height: 26px;
+    bottom:0;
+    background-color: #003a81;
+    color: white;
+}
+.buttonSubmit:hover{
+    background-color: #67caff;
+    color: black;
+}
+.buttonSubmit:focus{
+    background-color: #ffffff;
+    color: black;
+}*/
+.col4{
+    position: relative;
+    bottom:00px;
+    max-width: 100%;
+    height: 0%;
+    flex:100%;    
+    z-index: 0;
+}
+
+
+.element form .buttonSubmit{
+    position: relative;
+    text-align: center;
+    margin-top: 0px;
+    padding:0px;
+    width: 100px;
+    height: 26px;
+    background-color: #003a81;
+    color: white;
+}
+.element form .buttonSubmit:hover{
+    background-color: #67caff;
+    color: black;
+}
+
+
+
+
+.check0 {
+    padding: 7px 0px;
+    margin-right: 50px;
+     /* Spațiu la stânga pentru caseta de bifare */
+}
+.check1 {
+    display: inline-block;
+    position: relative;
+    max-width: 40px;
+     /* Spațiu la stânga pentru caseta de bifare */
+}
+
+
+
+/* Alte stilizări pentru a evidenția că eticheta este asociată cu caseta de bifare */
+label[for="activare_tratament"],
+label[for="activare_medicament"] {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.blueB {
+    float:left;
+    position:relative;
+    display: block;
+    background-color: #000c32;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 38%;
+    margin-right: 0%;
+    min-width: 10px;
+    max-width: 200px;
+    width: 20%;
+    text-decoration: none;
+}

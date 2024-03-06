@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Adăugre Bolnav</title>
+</head>
+
+<body>
+    <div class="filter">
+        test
+    </div>
+    
+    <div class="navbar">
+        <a href="../">
+            <img class="image2" src="img/redcross2.gif" alt="Red Cross">
+        </a>
+        <div class="line">
+            <a class='blueB' href="bolnavCautare.html">Căutare Bolnav</a>
+            <a class='blueB' href="medicCautare.html">Căutare Medic</a>
+
+            <a class='orangeB' href="asociereCautare.html">Căutare Asociere</a>
+
+            <a class='blueB' href="diagnosticCautare.html">Căutare Diagnostic</a>
+            <a class='blueB' href="medtratCautare.html">Căutare Med. / Trat.</a>
+        </div>
+        <div class="line">
+            <a class='blueB_active' href="bolnavAdaugare.html">Adăugare Bolnav</a>
+            <a class='blueB' href="medicAdaugare.html">Adăugare Medic</a>
+
+            <a class='orangeB' href="asociereAdaugare.html">Adăugare Asociere</a>
+
+            <a class='blueB' href="diagnosticAdaugare.html">Adăugare Diagnostic</a>
+            <a class='blueB' href="medtratAdaugare.html">Adăugare Med. / Trat.</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="element">
+            <div class="colFlex">
+                <form id="myForm" method="post">
+                    <div class="col2">
+                        
+                        <label for="nume">Nume:</label>
+                        <input type="text" name="nume" required><br>
+                
+                        <label for="prenume">Prenume:</label>
+                        <input type="text" name="prenume" required><br>
+                
+                        <label for="CNP">CNP:</label>
+                        <input type="text" name="CNP" required><br>
+                
+                        <label for="sex">Sex:</label>
+                        <input type="text" name="sex" required><br>
+                
+                        <label for="dataNastere">Data Nasterii:</label>
+                        <input type="date" name="dataNastere" required><br>
+
+                        <label for="medic">Medic:</label>
+                        <select name="medic" required>
+
+                        </select><br>
+                        
+                    </div>
+                    
+                    <div class="col2">
+                        
+                        <label for="telefon">Telefon:</label>
+                        <input type="text" name="telefon" required><br>
+                
+                        <label for="strada">Strada:</label>
+                        <input type="text" name="strada" required><br>
+                
+                        <label for="numar">Numar:</label>
+                        <input type="text" name="numar" required><br>
+                
+                        <label for="oras">Oras:</label>
+                        <input type="text" name="oras" required><br>
+                
+                        <label for="judet">Judet:</label>
+                        <input type="text" name="judet" required><br>
+
+
+                        <label for="diagnostic">Diagnostic:</label>
+                        <select name="diagnostic" required>
+
+                        </select><br>
+                        
+                        <input class="buttonSubmit" type="submit" value="Adauga">
+                    
+                    </div>
+             
+                    
+                </form>
+            </div>
+            
+            
+        </div>
+
+        <div class="element">
+            <div class="textbox1">
+                <h1>Adăugare bolnav</h1>
+                <h3>se va introduce direct in baza de date</h3>
+                <div class="message" id="responseMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            $('#myForm').submit();
+        }
+        $(document).ready(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'php/get_tratamente.php',
+                success: function(response) {
+                    $('select[name="tratament"]').html(response);
+                }
+            });
+
+            $.ajax({
+                type: 'GET',
+                url: 'php/get_medici.php', 
+                success: function(response) {
+                    $('select[name="medic"]').html(response);
+                }
+            });
+
+            $.ajax({
+                type: 'GET',
+                url: 'php/get_diagnostic2.php',
+                success: function(response) {
+                    $('select[name="diagnostic"]').html(response);
+                }
+            });
+
+            $('#myForm').submit(function(event) {
+                event.preventDefault();
+
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/adauga_bolnav.php',
+                    data: formData,
+                    success: function(response) {
+                        if (response.trim() !== "") {
+                            $('#responseMessage').html(response);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

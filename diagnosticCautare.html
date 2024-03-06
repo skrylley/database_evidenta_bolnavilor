@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/functii.js"></script>
+    <title>Căutare Diagnostice</title>
+</head>
+
+<body>
+    <div class="filter">
+       
+    </div>
+
+    <div class="navbar">
+        <a href="../">
+            <img class="image2" src="img/redcross2.gif" alt="Red Cross">
+        </a>
+        <div class="line">
+            <a class='blueB' href="bolnavCautare.html">Căutare Bolnav</a>
+            <a class='blueB' href="medicCautare.html">Căutare Medic</a>
+
+            <a class='orangeB' href="asociereCautare.html">Căutare Asociere</a>
+
+            <a class='blueB_active' href="diagnosticCautare.html">Căutare Diagnostic</a>
+            <a class='blueB' href="medtratCautare.html">Căutare Med. / Trat.</a>
+        </div>
+        <div class="line">
+            <a class='blueB' href="bolnavAdaugare.html">Adăugare Bolnav</a>
+            <a class='blueB' href="medicAdaugare.html">Adăugare Medic</a>
+
+            <a class='orangeB' href="asociereAdaugare.html">Adăugare Asociere</a>
+
+            <a class='blueB' href="diagnosticAdaugare.html">Adăugare Diagnostic</a>
+            <a class='blueB' href="medtratAdaugare.html">Adăugare Med. / Trat.</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="element">
+            <div class="colFlex">
+                <form class="searchF" id="searchForm" method="post">
+
+                        
+                    <div class="col2">
+                        <label for="denumire">Denumire:</label>
+                        <input type="text" name="denumire" id="denumire">
+
+                    </div>
+
+                    <div class="col2">
+                        <label for="detalii">Detalii:</label>
+                        <input type="text" name="detalii" id="detalii">
+                        <button class="cautare" type="button" onclick="submitNestedForm('searchForm')">Căutare</button>
+                    </div>
+                    
+                </form>
+
+            </div>
+            <div class="col3">
+                
+            </div>
+        </div>
+
+        <div class="element">
+            <div class="textbox1">
+                <h1>Căutare Diagnostic</h1>
+                <h3>căutare / ștergere</h3>
+                
+            </div>
+        </div>
+        <div class="tabel" id="rezultateCautare"></div>
+    </div>
+
+    <script>
+        function submitNestedForm(formId) {
+            var formData = $('#' + formId).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'php/cautare_diagnostic.php',
+                data: formData,
+                success: function(response) {
+                    $('#rezultateCautare').html(response);
+                }
+            });
+        }
+        $('form').submit(function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
